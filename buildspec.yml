@@ -14,11 +14,11 @@ phases:
     commands:
       - echo Entering build phase...
       - echo Build started on `date`
-      - ./gradlew war
+      - ./gradlew explodedWar
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - build/libs/connect4-api.war
-  discard-paths: yes
+    - build/exploded/**/*
+  base-directory: build/exploded
