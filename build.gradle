@@ -38,3 +38,7 @@ dependencies {
     // end::tests[]
     providedRuntime "org.springframework.boot:spring-boot-starter-tomcat"
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0'
+}
