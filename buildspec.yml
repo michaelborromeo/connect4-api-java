@@ -8,6 +8,7 @@ phases:
     commands:
       - echo Entering pre_build phase...
       - echo Test started on `date`
+      - chmod +x ./gradlew
       - ./gradlew clean test
   build:
     commands:
