@@ -20,4 +20,5 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - 'build/libs/connect4-api.war'
+    - build/libs/connect4-api.war
+  discard-paths: yes
