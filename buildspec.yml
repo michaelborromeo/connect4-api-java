@@ -9,7 +9,7 @@ phases:
       - echo Entering pre_build phase...
       - echo Test started on `date`
       - chmod +x ./gradlew
-      - ./gradlew clean test
+      - ./gradlew clean test --info
   build:
     commands:
       - echo Entering build phase...
