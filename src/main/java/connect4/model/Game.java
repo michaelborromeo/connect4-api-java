@@ -1,4 +1,6 @@
-package connect4;
+package connect4.model;
+
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,6 @@ public class Game {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
   private Date timestamp;
   private int winningPlayer;
   private int numberOfTurns;
@@ -55,56 +56,5 @@ public class Game {
 
   public void setGrid(GridCell[][] grid) {
     this.grid = grid;
-  }
-
-  @Entity
-  public static class GridCell {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private int usedAtTurn;
-    private int column;
-    private int row;
-    private int player;
-
-    public Long getId() {
-      return id;
-    }
-
-    public void setId(Long id) {
-      this.id = id;
-    }
-
-    public int getUsedAtTurn() {
-      return usedAtTurn;
-    }
-
-    public void setUsedAtTurn(int usedAtTurn) {
-      this.usedAtTurn = usedAtTurn;
-    }
-
-    public int getColumn() {
-      return column;
-    }
-
-    public void setColumn(int column) {
-      this.column = column;
-    }
-
-    public int getRow() {
-      return row;
-    }
-
-    public void setRow(int row) {
-      this.row = row;
-    }
-
-    public int getPlayer() {
-      return player;
-    }
-
-    public void setPlayer(int player) {
-      this.player = player;
-    }
   }
 }
