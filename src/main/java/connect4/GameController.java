@@ -19,11 +19,6 @@ public class GameController {
     this.repository = repository;
   }
 
-  @RequestMapping("/")
-  public String index() {
-    return "Greetings from Spring Boot...";
-  }
-
   @RequestMapping(value = "/api/game/{id}", method = RequestMethod.GET)
   public ResponseEntity<Game> getGame(@PathVariable Long id) {
     Game game = repository.findOne(id);
