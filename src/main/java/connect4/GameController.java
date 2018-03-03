@@ -4,6 +4,7 @@ import connect4.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.RequestWrapper;
@@ -41,12 +42,14 @@ public class GameController {
   }
 
   @RequestMapping(value = "/api/game", method = RequestMethod.POST)
+  @Transactional
   public ResponseEntity<Game> addGame(@RequestBody Game game) {
     Game savedGame = repository.save(game);
     return new ResponseEntity<>(savedGame, HttpStatus.OK);
   }
 
   @RequestMapping(value = "/api/game/{id}", method = RequestMethod.DELETE)
+  @Transactional
   public ResponseEntity<Game> deleteGame(@PathVariable Long id) {
     if (repository.exists(id)) {
       repository.delete(id);

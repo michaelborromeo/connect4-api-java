@@ -35,7 +35,9 @@ dependencies {
     compile(group: "org.postgresql", name: "postgresql", version: "42.2.1")
     compile(group: "com.google.guava", name: "guava", version: "19.0")
 
+    testCompile(group: "com.h2database", name: "h2", version: "1.4.196")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+
     providedRuntime "org.springframework.boot:spring-boot-starter-tomcat"
 }
 

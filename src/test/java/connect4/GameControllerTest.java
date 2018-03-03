@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -70,6 +69,7 @@ public class GameControllerTest {
     verify(repository, times(1)).findOne(1L);
 
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(responseGame).isNotNull();
     assertThat(responseGame.getId()).isEqualTo(game1.getId());
     assertThat(responseGame.getNumberOfTurns()).isEqualTo(game1.getNumberOfTurns());
     assertThat(responseGame.getTimestamp()).isEqualTo(game1.getTimestamp());
@@ -97,6 +97,7 @@ public class GameControllerTest {
     verify(repository, times(1)).save(game1);
 
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(responseGame).isNotNull();
     assertThat(responseGame.getId()).isEqualTo(game1.getId());
     assertThat(responseGame.getNumberOfTurns()).isEqualTo(game1.getNumberOfTurns());
     assertThat(responseGame.getTimestamp()).isEqualTo(game1.getTimestamp());
