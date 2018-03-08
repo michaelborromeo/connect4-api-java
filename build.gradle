@@ -38,7 +38,7 @@ dependencies {
     testCompile(group: "com.h2database", name: "h2", version: "1.4.196")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 
-    providedRuntime "org.springframework.boot:spring-boot-starter-tomcat"
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 }
 
 task wrapper(type: Wrapper) {
