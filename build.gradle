@@ -49,3 +49,9 @@ task explodedWar(type: Sync) {
     into "${buildDir}/exploded"
     with war
 }
+
+def profiles = "local"
+
+bootRun {
+    args = ["--spring.profiles.active=" + profiles]
+}
