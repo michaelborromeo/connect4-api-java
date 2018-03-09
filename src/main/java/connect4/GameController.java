@@ -2,6 +2,7 @@ package connect4;
 
 import connect4.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,14 @@ public class GameController {
   @Autowired
   public GameController(GameRepository repository) {
     this.repository = repository;
+  }
+
+  @Value("${ENV:local}")
+  private String activeProfile;
+
+  @RequestMapping(value = "/api/env", method = RequestMethod.GET)
+  public String getEnv() {
+    return activeProfile;
   }
 
   @RequestMapping(value = "/api/game/{id}", method = RequestMethod.GET)
