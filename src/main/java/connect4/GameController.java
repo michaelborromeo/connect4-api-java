@@ -8,10 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.RequestWrapper;
-import java.util.List;
-
 @RestController
+@CrossOrigin
 public class GameController {
   private GameRepository repository;
 
